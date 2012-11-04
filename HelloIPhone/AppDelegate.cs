@@ -16,7 +16,9 @@ namespace HelloIPhone
 	{
 		// class-level declarations
 		UIWindow window;
-		MainViewController mainViewController;
+//		MainViewController mainViewController;
+
+		TabBarController rootNavigationController;
 
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this 
@@ -29,9 +31,14 @@ namespace HelloIPhone
 			RegisterDefaultsFromSettingsBundle ();
 			// create a new window instance based on the screen size
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			
-			mainViewController = new MainViewController ();
-			window.RootViewController = mainViewController;
+
+			this.rootNavigationController = new TabBarController ();
+									
+//			mainViewController = new MainViewController ();
+
+//			this.rootNavigationController.PushViewController (mainViewController, false);
+
+			window.RootViewController = this.rootNavigationController;
 			window.MakeKeyAndVisible ();
 			
 			return true;

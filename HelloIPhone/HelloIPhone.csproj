@@ -95,10 +95,16 @@
       <DependentUpon>FlipsideViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="MainViewController.cs" />
+    <Compile Include="History.cs" />
+    <Compile Include="History.designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabBarController.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainViewController.xib" />
     <InterfaceDefinition Include="FlipsideViewController.xib" />
+    <InterfaceDefinition Include="History.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

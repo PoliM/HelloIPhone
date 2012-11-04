@@ -8,6 +8,8 @@ namespace HelloIPhone
 {
 	public partial class MainViewController : UIViewController
 	{
+		private History history;
+
 		public MainViewController () : base ("MainViewController", null)
 		{
 			// Custom initialization
@@ -45,6 +47,17 @@ namespace HelloIPhone
 				Total.Text = Amount.Text;
 				Amount.Text = "";
 			};
+
+			HistoryButton.TouchUpInside += (sender, e) => {
+				history = new History ();
+				history.ModalTransitionStyle = UIModalTransitionStyle.PartialCurl;
+				history.Done += (sender2, e2) => {
+					DismissModalViewControllerAnimated (true);
+				};
+
+				PresentModalViewController (history, true);
+				
+			};
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -52,8 +65,15 @@ namespace HelloIPhone
 			base.ViewDidAppear (animated);
 
 			GoalText.Text = NSUserDefaults.StandardUserDefaults.StringForKey ("goal") + " grams";
+
+//			NavigationController.SetNavigationBarHidden (true, animated);
 		}
 
+		public override void ViewWillDisappear (bool animated)
+		{
+			base.ViewWillDisappear (animated);
+//			NavigationController.SetNavigationBarHidden (false, animated);
+		}
 		partial void EnterClicked (NSObject sender)
 		{
 //			Total.Text = Amount.Text;

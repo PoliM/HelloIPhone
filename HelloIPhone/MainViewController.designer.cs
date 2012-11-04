@@ -12,6 +12,9 @@ namespace HelloIPhone
 	partial class MainViewController
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIButton HistoryButton { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel GoalText { get; set; }
 
 		[Outlet]
@@ -34,6 +37,11 @@ namespace HelloIPhone
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (HistoryButton != null) {
+				HistoryButton.Dispose ();
+				HistoryButton = null;
+			}
+
 			if (GoalText != null) {
 				GoalText.Dispose ();
 				GoalText = null;

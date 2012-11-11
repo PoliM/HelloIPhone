@@ -12,6 +12,9 @@ namespace HelloIPhone
 	partial class MainViewController
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIButton ResetButton { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIButton HistoryButton { get; set; }
 
 		[Outlet]
@@ -37,6 +40,11 @@ namespace HelloIPhone
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ResetButton != null) {
+				ResetButton.Dispose ();
+				ResetButton = null;
+			}
+
 			if (HistoryButton != null) {
 				HistoryButton.Dispose ();
 				HistoryButton = null;

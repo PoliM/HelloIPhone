@@ -58,6 +58,27 @@ namespace HelloIPhone
 				PresentModalViewController (history, true);
 				
 			};
+
+			ResetButton.TouchUpInside += (sender, e) => {
+				var alert = new UIActionSheet ("Reset?", null, "Cancel", "Reset", "?");
+				alert.Clicked += HandleAlertClicked;
+				alert.ShowInView (ParentViewController.View);
+			};
+		}
+
+		void HandleAlertClicked (object sender, UIButtonEventArgs e)
+		{
+			UIActionSheet alert = (UIActionSheet)sender;
+			if (e.ButtonIndex == alert.CancelButtonIndex) {
+				var al2 = new UIAlertView ("Canceled", "Canceled", null, "Ok");
+				al2.Show ();
+			} else if (e.ButtonIndex == alert.DestructiveButtonIndex) {
+				var al2 = new UIAlertView ("Ok", "Ok", null, "Ok");
+				al2.Show ();
+			} else {
+				var al2 = new UIAlertView ("Hä?", "What?", null, "Ok");
+				al2.Show ();
+			}
 		}
 
 		public override void ViewDidAppear (bool animated)
